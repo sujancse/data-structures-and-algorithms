@@ -1,0 +1,1 @@
+Heap memory should be deleted after use. Otherwise it will cause memory leak.
