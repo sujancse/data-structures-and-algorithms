@@ -1,9 +1,9 @@
 #include<stdio.h>
 
-int x = 0;
+//int x = 0;
 int fun(int n)
 {
-//    int static x = 0;
+    int static x = 0;
 
     if(n>0) {
         x++;
@@ -16,6 +16,8 @@ int fun(int n)
 int main()
 {
     int a = 5;
+    printf("%d", fun(a));
+
     printf("%d", fun(a));
 
     return 0;
