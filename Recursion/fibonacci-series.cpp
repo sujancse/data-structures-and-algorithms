@@ -19,7 +19,16 @@ int fib_iterative(int n)
     return s;
 }
 
+int fib(int n)
+{
+    if (n<=0)
+        return n;
+
+    return fib(n-1) + fib(n-2);
+}
+
 int main()
 {
     printf("%d \n", fib_iterative(3));
+    printf("%d \n", fib(3));
 }
