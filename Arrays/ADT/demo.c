@@ -30,13 +30,23 @@ void Insert(struct Array *arr, int index, int x)
         arr->length++;
 }
 
+void Delete(struct Array *arr, int index)
+{
+    if (index >= 0 && index <= arr->length)
+        for (int i = index; i < arr->length - 1; i++)
+            arr->A[i] = arr->A[i+1];
+        arr->length--;
+}
+
 int main()
 {
     struct Array arr = {{1, 2, 3, 4}, 10, 4};
 
-    Insert(&arr, 2, 5);
+    //Insert(&arr, 2, 5);
 
-    Append(&arr, 10);
+    //Append(&arr, 10);
+
+    Delete(&arr, 0);
 
     Display(arr);
 
