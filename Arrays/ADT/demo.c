@@ -157,9 +157,20 @@ void Reverse(struct Array *arr)
     }
 }
 
+void Reverse2(struct Array *arr)
+{
+    int i,j;
+
+    for (i=0,j=arr->length - 1; i < j; i++, j--) {
+        Swap(&arr->A[i], &arr->A[j]);
+    }
+}
+
 int main()
 {
     struct Array arr = {{2, 3, 9, 1}, 10, 4};
+
+    Reverse2(&arr);
 
     Reverse(&arr);
 
