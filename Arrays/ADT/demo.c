@@ -6,6 +6,14 @@ struct Array {
     int length;
 };
 
+void Swap(int *x, int *y)
+{
+    int temp;
+    temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
 void Display(struct Array arr)
 {
     int i;
@@ -133,11 +141,29 @@ int Avg(struct Array arr)
     return (float) Sum(arr)/arr.length;
 }
 
+void Reverse(struct Array *arr)
+{
+    int i, j;
+    int *B;
+
+    B = (int *)malloc(arr->length*sizeof(int));
+
+    for (i = arr->length - 1, j = 0; i>=0; i--, j++) {
+        B[j] = arr->A[i];
+    }
+
+    for (i = 0; i < arr->length; i++) {
+        arr->A[i] = B[i];
+    }
+}
+
 int main()
 {
     struct Array arr = {{2, 3, 9, 1}, 10, 4};
 
-    printf("%d \n", Avg(arr));
+    Reverse(&arr);
+
+    //printf("%d \n", Avg(arr));
 
     //printf("%d \n", RSum(arr, 3));
 
@@ -159,7 +185,7 @@ int main()
 
     //printf("%d", BinarySearch(arr, 4));
 
-    //Display(arr);
+    Display(arr);
 
     return 0;
 }
