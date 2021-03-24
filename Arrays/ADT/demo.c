@@ -178,11 +178,25 @@ void InsertInSortedArray(struct Array *arr, int x)
     arr->A[i+1] = x;
 }
 
+int IsSorted(struct Array arr, int n)
+{
+    int i;
+
+    for (i = 0; i < n-1; i++) {
+        if (arr.A[i] > arr.A[i+1])
+            return 0;
+    }
+
+    return 1;
+}
+
 int main()
 {
     struct Array arr = {{2, 3, 9, 10}, 10, 4};
 
-    InsertInSortedArray(&arr, 5);
+    printf("%d \n", IsSorted(arr, 4));
+
+    //InsertInSortedArray(&arr, 5);
 
     //Reverse2(&arr);
 
