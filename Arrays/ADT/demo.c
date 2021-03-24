@@ -190,11 +190,29 @@ int IsSorted(struct Array arr, int n)
     return 1;
 }
 
+void Rearrange(struct Array *arr)
+{
+    int i, j;
+    i = 0;
+    j = arr->length - 1;
+
+    while (i<j) {
+        while (arr->A[i] < 0) i++;
+        while (arr->A[j] >= 0) j--;
+
+        if (i<j) {
+            Swap(&arr->A[i], &arr->A[j]);
+        }
+    }
+}
+
 int main()
 {
-    struct Array arr = {{2, 3, 9, 10}, 10, 4};
+    struct Array arr = {{2, -3, 9, -10}, 10, 4};
 
-    printf("%d \n", IsSorted(arr, 4));
+    Rearrange(&arr);
+
+    //printf("%d \n", IsSorted(arr, 4));
 
     //InsertInSortedArray(&arr, 5);
 
