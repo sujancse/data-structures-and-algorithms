@@ -166,13 +166,27 @@ void Reverse2(struct Array *arr)
     }
 }
 
+void InsertInSortedArray(struct Array *arr, int x)
+{
+    int i;
+    i = arr->length - 1;
+    while (arr->A[i] > x) {
+        arr->A[i+1] = arr->A[i];
+        i--;
+    }
+
+    arr->A[i+1] = x;
+}
+
 int main()
 {
-    struct Array arr = {{2, 3, 9, 1}, 10, 4};
+    struct Array arr = {{2, 3, 9, 10}, 10, 4};
 
-    Reverse2(&arr);
+    InsertInSortedArray(&arr, 5);
 
-    Reverse(&arr);
+    //Reverse2(&arr);
+
+    //Reverse(&arr);
 
     //printf("%d \n", Avg(arr));
 
